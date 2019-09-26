@@ -43,7 +43,7 @@ class PostController extends Controller
 
         //checking and creating the  image directory
         if (!Storage::disk('public')->exists('post')) {
-            Storage::disk('public')->makeDirectory('post/');
+            Storage::disk('public')->makeDirectory('post');
         }
         if(isset($image)){
             //unique name for image
@@ -82,7 +82,7 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
-        //
+        return view('admin.post.show',compact('post'));
     }
 
     public function edit(Post $post)
@@ -95,12 +95,71 @@ class PostController extends Controller
 
     public function update(Request $request, Post $post)
     {
-        //
+        $this->validate($request,[
+            'title'=>'required',
+            'image'=>'required',
+            'categories'=>'required',
+            'tags'=>'required',
+            'body'=>'required',
+        ]);
+        //get image
+        $image=$request->file('image');
+        $slug=str_slug($request->title);
+
+
+        if(isset($image)){
+            //unique name for image
+            $currentDate=Carbon::now()->toDateString();
+            $imageName=$slug.'-'.$currentDate.'-'.uniqid().'.'.$image->getClientOriginalExtension();
+
+            //checking and creating the  image directory
+            if (!Storage::disk('public')->exists('post')) {
+                Storage::disk('public')->makeDirectory('post');
+            }
+            if (Storage::disk('public')->exists('post/'.$post->image)) {
+                Storage::disk('public')->delete('post/'.$post->image);
+            }
+            //post image resize and saved in the directory
+            $postImage=Image::make($image)->resize(1600,1046)->stream();
+            Storage::disk('public')->put('post/'.$imageName,$postImage);
+            Storage::disk('public')->put('post/'.$imageName,$postImage);
+
+
+        }
+        else{
+            $imageName="default.png";
+        }
+
+        $post->title=$request->title;
+        $post->user_id=Auth::id();
+        $post->slug=$slug;
+        $post->image=$imageName;
+        $post->body=$request->body;
+        if(isset($request->status)){
+            $post->status=true;
+        }else{
+            $post->status=false;
+        }
+        $post->is_approved=true;
+        $post->save();
+
+        $post->categories()->sync($request->categories);
+        $post->tags()->sync($request->tags);
+
+        Toastr::success('post updated successfully', 'Success');
+        return redirect()->route('admin.post.index');
     }
 
 
     public function destroy(Post $post)
     {
-        //
+        if (Storage::disk('public')->exists('post/'.$post->image)) {
+            Storage::disk('public')->delete('post/'.$post->image);
+        }
+        $post->categories()->detach();
+        $post->tags()->detach();
+        $post->delete();
+        Toastr::success('post deleted successfully', 'Success');
+        return redirect()->back();
     }
 }

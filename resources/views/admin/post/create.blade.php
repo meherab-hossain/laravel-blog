@@ -26,7 +26,7 @@
                             </div>
                             <span class="text-danger"> {{$errors->has('title') ? $errors->first('title'):''}} </span>
                         </div>
-                        <div class="form-group">
+                        <div class="form-line">
                             <label for="image"> Featured Image</label>
                             <input type="file" name="image">
                             <span class="text-danger"> {{$errors->has('image') ? $errors->first('image'):''}} </span>
