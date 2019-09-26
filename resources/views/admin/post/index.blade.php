@@ -1,5 +1,5 @@
 @extends('layouts.backend.app')
-@section('title','tag')
+@section('title','post')
 
 @push('css')
     <!-- JQuery DataTable Css -->
@@ -10,9 +10,9 @@
 @section('content')
     <div class="container-fluid">
         <div class="block-header">
-           <a href="{{route('admin.tag.create')}}" class="btn btn-primary waves-effect">
+           <a href="{{route('admin.post.create')}}" class="btn btn-primary waves-effect">
                <i class="material-icons">add</i>
-               <span>Add New Tag</span>
+               <span>Add New Post</span>
            </a>
         </div>
         <div class="row clearfix">
@@ -20,8 +20,8 @@
                 <div class="card">
                     <div class="header">
                         <h2>
-                           All tags
-                           <span class="badge bg-blue">{{$tags->count()}}</span>
+                           All post
+                           <span class="badge bg-blue">{{$posts->count()}}</span>
                         </h2>
 
                     </div>
@@ -31,8 +31,13 @@
                                 <thead>
                                 <tr>
                                     <th>Sl No</th>
-                                    <th>name</th>
-                                    <th>post count</th>
+                                    <th>title</th>
+                                    <th>Author</th>
+                                    <th>
+                                        <i class="material-icons">visibility</i>
+                                    </th>
+                                    <th>Is Approved</th>
+                                    <th>Status</th>
                                     <th>Created_at</th>
                                     <th>Updated_at</th>
                                     <th>Action</th>
@@ -40,21 +45,36 @@
                                 </thead>
                                 <tbody>
                                 @php($i=1)
-                                @foreach($tags as $tag)
+                                @foreach($posts as $post)
                                     <tr>
                                         <td>{{$i++}}</td>
-                                        <td>{{$tag->name}}</td>
-                                        <td>{{$tag->posts->count()}}</td>
-                                        <td>{{$tag->created_at}}</td>
-                                        <td>{{$tag->updated_at}}</td>
+                                        <td>{{str_limit($post->title,'10')}}</td>
+                                        <td>{{$post->user->name}}</td>
+                                        <td>{{$post->view_count}}</td>
                                         <td>
-                                            <a href="{{route('admin.tag.edit',$tag->id)}}" class="btn btn-info waves-effect">
+                                            @if($post->is_approved==true)
+                                                <span class="badge bg-blue">approved</span>
+                                            @else
+                                                <span class="badge bg-pink">pending</span>
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if($post->status==true)
+                                                <span class="badge bg-blue">approved</span>
+                                            @else
+                                                <span class="badge bg-pink">pending</span>
+                                            @endif
+                                        </td>
+                                        <td>{{$post->created_at}}</td>
+                                        <td>{{$post->updated_at}}</td>
+                                        <td>
+                                            <a href="{{route('admin.post.edit',$post->id)}}" class="btn btn-info waves-effect">
                                                 <i class="material-icons">edit</i>
                                             </a>
-                                            <button class="btn btn-danger waves-effect" type="button" onclick="deleteTag({{ $tag->id }})">
+                                            <button class="btn btn-danger waves-effect" type="button" onclick="deletePost({{ $post->id }})">
                                                 <i class="material-icons">delete</i>
                                             </button>
-                                            <form id="delete-form-{{ $tag->id }}" action="{{ route('admin.tag.destroy',$tag->id) }}" method="POST" style="display: none;">
+                                            <form id="delete-form-{{ $post->id }}" action="{{ route('admin.post.destroy',$post->id) }}" method="POST" style="display: none;">
                                                 @csrf
                                                 @method('DELETE')
                                             </form>
@@ -88,7 +108,7 @@
 
     <script src="https://unpkg.com/sweetalert2@7.19.1/dist/sweetalert2.all.js"></script>
     <script type="text/javascript">
-        function deleteTag(id) {
+        function deletePost(id) {
             swal({
                 title: 'Are you sure?',
                 text: "You won't be able to revert this!",
