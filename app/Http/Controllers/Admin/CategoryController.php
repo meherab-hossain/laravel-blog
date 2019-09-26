@@ -24,11 +24,6 @@ class CategoryController extends Controller
         return view('admin.category.create');
     }
 
-    /**
-     * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse
-     * @throws \Illuminate\Validation\ValidationException
-     */
     public function store(Request $request)
     {
         $this->validate($request,[

@@ -10,7 +10,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="block-header">
-           <a href="{{route('admin.post.create')}}" class="btn btn-primary waves-effect">
+           <a href="{{route('author.post.create')}}" class="btn btn-primary waves-effect">
                <i class="material-icons">add</i>
                <span>Add New Post</span>
            </a>
@@ -39,7 +39,7 @@
                                     <th>Is Approved</th>
                                     <th>Status</th>
                                     <th>Created_at</th>
-                                    {{--<th>Updated_at</th>--}}
+                                    <th>Updated_at</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
@@ -66,18 +66,18 @@
                                             @endif
                                         </td>
                                         <td>{{$post->created_at}}</td>
-                                        {{--<td>{{$post->updated_at}}</td>--}}
+                                        <td>{{$post->updated_at}}</td>
                                         <td>
-                                            <a href="{{route('admin.post.show',$post->id)}}" class="btn btn-info waves-effect">
+                                            <a href="{{route('author.post.show',$post->id)}}" class="btn btn-info waves-effect">
                                                 <i class="material-icons">visibility</i>
                                             </a>
-                                            <a href="{{route('admin.post.edit',$post->id)}}" class="btn btn-info waves-effect">
+                                            <a href="{{route('author.post.edit',$post->id)}}" class="btn btn-info waves-effect">
                                                 <i class="material-icons">edit</i>
                                             </a>
                                             <button class="btn btn-danger waves-effect" type="button" onclick="deletePost({{ $post->id }})">
                                                 <i class="material-icons">delete</i>
                                             </button>
-                                            <form id="delete-form-{{ $post->id }}" action="{{ route('admin.post.destroy',$post->id) }}" method="POST" style="display: none;">
+                                            <form id="delete-form-{{ $post->id }}" action="{{ route('author.post.destroy',$post->id) }}" method="POST" style="display: none;">
                                                 @csrf
                                                 @method('DELETE')
                                             </form>
