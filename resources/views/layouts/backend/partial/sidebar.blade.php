@@ -79,7 +79,7 @@
             @endif
             @if(Request::is('author*'))
                 <li class="{{Request::is('author/dashboard') ? 'active' : ''}}">
-                    <a href="{{route('admin.dashboard')}}">
+                    <a href="{{route('author.dashboard')}}">
                         <i class="material-icons">dashboard</i>
                         <span>Dashboard</span>
                     </a>
