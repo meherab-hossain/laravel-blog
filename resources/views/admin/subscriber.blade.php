@@ -1,5 +1,5 @@
 @extends('layouts.backend.app')
-@section('title','post')
+@section('title','subscribers')
 
 @push('css')
     <!-- JQuery DataTable Css -->
@@ -9,19 +9,13 @@
 
 @section('content')
     <div class="container-fluid">
-        <div class="block-header">
-           <a href="{{route('author.post.create')}}" class="btn btn-primary waves-effect">
-               <i class="material-icons">add</i>
-               <span>Add New Post</span>
-           </a>
-        </div>
         <div class="row clearfix">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="header">
                         <h2>
-                           All post
-                           <span class="badge bg-blue">{{$posts->count()}}</span>
+                           All SUBSCRIBERS
+                           <span class="badge bg-blue">{{$subscribers->count()}}</span>
                         </h2>
 
                     </div>
@@ -31,55 +25,26 @@
                                 <thead>
                                 <tr>
                                     <th>Sl No</th>
-                                    <th>title</th>
-                                    <th>Author</th>
-                                    <th>
-                                        <i class="material-icons">visibility</i>
-                                    </th>
-                                    <th>Is Approved</th>
-                                    <th>Status</th>
+                                    <th>email</th>
                                     <th>Created_at</th>
-                                    {{--<th>Updated_at</th>--}}
+                                    <th>Updated_at</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @php($i=1)
-                                @foreach($posts as $post)
+                                @foreach($subscribers as $subscriber)
                                     <tr>
                                         <td>{{$i++}}</td>
-                                        <td>{{str_limit($post->title,'10')}}</td>
-                                        <td>{{$post->user->name}}</td>
-                                        <td>{{$post->view_count}}</td>
+                                        <td>{{$subscriber->email}}</td>
+                                        <td>{{$subscriber->created_at}}</td>
+                                        <td>{{$subscriber->updated_at}}</td>
                                         <td>
-                                            @if($post->is_approved==true)
-                                                <span class="badge bg-blue">approved</span>
-                                            @else
-                                                <span class="badge bg-pink">pending</span>
-                                            @endif
-                                        </td>
-                                        <td>
-                                            @if($post->status==true)
-                                                <span class="badge bg-blue">approved</span>
-                                            @else
-                                                <span class="badge bg-pink">pending</span>
-                                            @endif
-                                        </td>
-                                        <td>{{$post->created_at}}</td>
-                                        {{--<td>{{$post->updated_at}}</td>--}}
-                                        <td>
-                                            <a href="{{route('author.post.show',$post->id)}}" class="btn btn-info waves-effect">
-                                                <i class="material-icons">visibility</i>
-                                            </a>
-                                            <a href="{{route('author.post.edit',$post->id)}}" class="btn btn-info waves-effect">
-                                                <i class="material-icons">edit</i>
-                                            </a>
-                                            <button class="btn btn-danger waves-effect" type="button" onclick="deletePost({{ $post->id }})">
+                                            <button class="btn btn-danger waves-effect" type="button" onclick="deleteSubscriber({{ $subscriber->id }})">
                                                 <i class="material-icons">delete</i>
                                             </button>
-                                            <form id="delete-form-{{ $post->id }}" action="{{ route('author.post.destroy',$post->id) }}" method="POST" style="display: none;">
+                                            <form id="delete-form-{{ $subscriber->id }}" action="{{ route('admin.subscriber.destroy',$subscriber->id) }}" method="post" style="display: none;">
                                                 @csrf
-                                                @method('DELETE')
                                             </form>
                                         </td>
                                     </tr>
@@ -111,10 +76,10 @@
 
     <script src="https://unpkg.com/sweetalert2@7.19.1/dist/sweetalert2.all.js"></script>
     <script type="text/javascript">
-        function deletePost(id) {
+        function deleteSubscriber(id) {
             swal({
                 title: 'Are you sure?',
-                text: "You won't be able to revert this!",
+                text: "You want to delete this subscriber!",
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
