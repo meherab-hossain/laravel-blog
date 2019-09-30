@@ -28,7 +28,8 @@ Route::group(['as'=>'admin.','prefix'=>'admin','namespace'=>'Admin','middleware'
 
     //admin profile settings router
     Route::get('settings','SettingsController@index')->name('settings.index');
-    Route::put('profile.update','SettingsController@updateProfile')->name('profile.update');
+    Route::put('profile-update','SettingsController@updateProfile')->name('profile.update');
+    Route::put('password-update','SettingsController@updatePassword')->name('password.update');
 
     //Admin Subscriber Route
     Route::get('/subscriber/list','SubscriberController@index')->name('subscriber.index');
