@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73535a97-bd19-4fb6-89fb-72b1205d2d78" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/SettingsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/SettingsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/settings.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/settings.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -81,14 +80,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="env" value="52" />
-          <entry key="php" value="9080" />
+          <entry key="php" value="9266" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key=".env file" value="14" />
-          <entry key="Blade" value="3436" />
-          <entry key="PHP" value="5644" />
+          <entry key="Blade" value="3617" />
+          <entry key="PHP" value="5649" />
           <entry key="PLAIN_TEXT" value="38" />
         </counts>
       </usages-collector>
@@ -121,32 +120,26 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/settings.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="88" column="67" selection-start-line="88" selection-start-column="58" selection-end-line="88" selection-end-column="67" />
+            <state relative-caret-position="104">
+              <caret line="12" column="40" lean-forward="true" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
               <folding>
-                <element signature="e#1013#4847#0#HTML" />
-                <element signature="e#1236#1998#0#HTML" />
-                <element signature="e#1295#1469#0#HTML" />
-                <element signature="e#1502#1963#0#HTML" />
-                <element signature="e#1590#1924#0#HTML" />
-                <element signature="e#1896#2707#0#HTML" />
-                <element signature="e#2311#2759#0#HTML" />
-                <element signature="e#2823#3524#0#HTML" />
-                <element signature="e#5274#6048#0#HTML" />
-                <element signature="e#6031#6774#0#HTML" />
+                <element signature="e#365#973#0#HTML" />
+                <element signature="e#1071#5087#0#HTML" />
+                <element signature="e#5109#8260#0#HTML" />
+                <element signature="e#8029#14462#0#Blade" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/SettingsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="79" column="42" lean-forward="true" selection-start-line="79" selection-start-column="42" selection-end-line="79" selection-end-column="42" />
+            <state relative-caret-position="140">
+              <caret line="74" column="43" selection-start-line="74" selection-start-column="43" selection-end-line="74" selection-end-column="43" />
               <folding>
                 <element signature="e#46#82#0#PHP" expanded="true" />
               </folding>
@@ -229,8 +222,8 @@
         <option value="$PROJECT_DIR$/resources/views/layouts/backend/partial/sidebar.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/PostController.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/settings.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/SettingsController.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/settings.blade.php" />
       </list>
     </option>
   </component>
@@ -341,9 +334,9 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="461" />
-    <option name="y" value="-21" />
-    <option name="width" value="817" />
+    <option name="x" value="119" />
+    <option name="y" value="-20" />
+    <option name="width" value="1205" />
     <option name="height" value="494" />
   </component>
   <component name="ProjectView">
@@ -465,18 +458,18 @@
       <workItem from="1568919640564" duration="887000" />
       <workItem from="1568984498492" duration="75111000" />
       <workItem from="1569544471958" duration="12364000" />
-      <workItem from="1569593500313" duration="31140000" />
+      <workItem from="1569593500313" duration="34324000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="175929000" />
+    <option name="totallyTimeSpent" value="179113000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.32299545" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.11875945" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -873,31 +866,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/settings.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/SettingsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="88" column="67" selection-start-line="88" selection-start-column="58" selection-end-line="88" selection-end-column="67" />
+        <state relative-caret-position="140">
+          <caret line="74" column="43" selection-start-line="74" selection-start-column="43" selection-end-line="74" selection-end-column="43" />
           <folding>
-            <element signature="e#1013#4847#0#HTML" />
-            <element signature="e#1236#1998#0#HTML" />
-            <element signature="e#1295#1469#0#HTML" />
-            <element signature="e#1502#1963#0#HTML" />
-            <element signature="e#1590#1924#0#HTML" />
-            <element signature="e#1896#2707#0#HTML" />
-            <element signature="e#2311#2759#0#HTML" />
-            <element signature="e#2823#3524#0#HTML" />
-            <element signature="e#5274#6048#0#HTML" />
-            <element signature="e#6031#6774#0#HTML" />
+            <element signature="e#46#82#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/SettingsController.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/settings.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="79" column="42" lean-forward="true" selection-start-line="79" selection-start-column="42" selection-end-line="79" selection-end-column="42" />
+        <state relative-caret-position="104">
+          <caret line="12" column="40" lean-forward="true" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
           <folding>
-            <element signature="e#46#82#0#PHP" expanded="true" />
+            <element signature="e#365#973#0#HTML" />
+            <element signature="e#1071#5087#0#HTML" />
+            <element signature="e#5109#8260#0#HTML" />
+            <element signature="e#8029#14462#0#Blade" />
           </folding>
         </state>
       </provider>
