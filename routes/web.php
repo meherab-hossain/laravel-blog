@@ -26,6 +26,10 @@ Route::group(['as'=>'admin.','prefix'=>'admin','namespace'=>'Admin','middleware'
     Route::get('/pending/post','PostController@pending')->name('post.pending');
     Route::put('/post/{id}/approve','PostController@approval')->name('post.approve');
 
+    //admin profile settings router
+    Route::get('settings','SettingsController@index')->name('settings.index');
+    Route::put('profile.update','SettingsController@updateProfile')->name('profile.update');
+
     //Admin Subscriber Route
     Route::get('/subscriber/list','SubscriberController@index')->name('subscriber.index');
     Route::post('/subscriber/{subscriber}','SubscriberController@destroy')->name('subscriber.destroy');
