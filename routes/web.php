@@ -17,6 +17,7 @@ Route::post('subscriber','SubscriberController@store')->name('subscriber.store')
 
 Auth::routes();
 
+//Admin and Author favourite post add route section
 Route::group(['middleware'=>['auth']], function (){
     Route::post('favourite/{post}/add','FavouriteController@add')->name('post.favourite');
 });
@@ -38,6 +39,10 @@ Route::group(['as'=>'admin.','prefix'=>'admin','namespace'=>'Admin','middleware'
     //Admin Subscriber Route
     Route::get('/subscriber/list','SubscriberController@index')->name('subscriber.index');
     Route::post('/subscriber/{subscriber}','SubscriberController@destroy')->name('subscriber.destroy');
+
+    //favourite post list controller
+    Route::get('/favourite','FavouritePostListController@index')->name('favourite.index');
+
 });
 //author route
 Route::group(['as'=>'author.','prefix'=>'author','namespace'=>'Author','middleware'=>['auth','author']],function (){
@@ -49,5 +54,8 @@ Route::group(['as'=>'author.','prefix'=>'author','namespace'=>'Author','middlewa
     Route::get('settings','SettingsController@index')->name('settings.index');
     Route::put('profile-update','SettingsController@updateProfile')->name('profile.update');
     Route::put('password-update','SettingsController@updatePassword')->name('password.update');
+
+    //favourite post list controller
+    Route::get('/favourite','FavouritePostListController@index')->name('favourite.index');
 
 });
