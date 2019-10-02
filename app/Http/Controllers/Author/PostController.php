@@ -142,7 +142,7 @@ class PostController extends Controller
             //post image resize and saved in the directory
             $postImage=Image::make($image)->resize(1600,1046)->stream();
             Storage::disk('public')->put('post/'.$imageName,$postImage);
-            Storage::disk('public')->put('post/'.$imageName,$postImage);
+
 
 
         }
